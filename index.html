@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Preston Cosby — Biochemistry Researcher &amp; Student Body President</title>
+<meta name="description" content="Preston Cosby — Biochemistry researcher and Student Body President at NCSSM, building toward cost-effective, equitable healthcare at the intersection of bioengineering and public policy." />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Preston Cosby — Biochemistry & Public Policy" />
+<meta property="og:description" content="Real-world solutions for every community that deserves better." />
+<meta property="og:image" content="og-image.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..700&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --cream:#FAF7F1; --cream-2:#F3EDE2; --card:#FFFFFF;
+    --ink:#1A2330; --ink-soft:#515C6E;
+    --blue-100:#E6EFF9; --blue-200:#C6DBF1; --blue-300:#9CC0E7;
+    --blue-500:#5483C4; --blue-700:#2D5290; --blue-900:#1E3A6B;
+    --coral:#E8896A; --coral-deep:#D9633F; --coral-soft:#F7D6C6;
+    --line:rgba(30,58,107,.14); --line-soft:rgba(30,58,107,.08);
+    --shadow:0 1px 2px rgba(26,35,48,.04),0 12px 40px -12px rgba(30,58,107,.18);
+    --shadow-lg:0 30px 70px -25px rgba(30,58,107,.35);
+    --maxw:1180px; --ease:cubic-bezier(.22,1,.36,1); --bar-h:clamp(16px,2.6vh,26px);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Hanken Grotesk',sans-serif;background:var(--cream);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.045;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  ::selection{background:var(--blue-200);color:var(--ink)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  .mono{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase}
+
+  #progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:1000;
+    background:linear-gradient(90deg,var(--blue-500),var(--coral))}
+
+  /* cinematic scroll frame: bars appear after leaving the top, a vignette flashes on transition */
+  .letterbox{position:fixed;left:0;right:0;height:0;background:var(--ink);z-index:950;pointer-events:none;transition:height .5s var(--ease)}
+  .letterbox.top{top:0}.letterbox.bot{bottom:0}
+  body.framed .letterbox{height:var(--bar-h)}
+  .vignette{position:fixed;inset:0;z-index:940;pointer-events:none;opacity:0;
+    background:radial-gradient(ellipse 78% 78% at center, transparent 48%, rgba(16,22,32,.5) 116%)}
+  .vignette.flash{animation:vig .3s var(--ease)}
+  @keyframes vig{0%{opacity:0}38%{opacity:.92}100%{opacity:0}}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;
+    justify-content:space-between;padding:18px 32px;background:rgba(250,247,241,0);
+    transition:background .4s var(--ease),backdrop-filter .4s var(--ease),padding .4s var(--ease),border-color .4s var(--ease),top .5s var(--ease);
+    border-bottom:1px solid transparent}
+  nav.scrolled{background:rgba(250,247,241,.82);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line-soft);padding:14px 32px}
+  body.framed nav{top:var(--bar-h)}
+  .brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;letter-spacing:-.01em;
+    display:flex;align-items:center;gap:10px}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px var(--coral-soft)}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{font-size:.82rem;font-weight:500;color:var(--ink-soft);position:relative;transition:color .25s var(--ease)}
+  .nav-links a:not(.nav-cta)::after{content:"";position:absolute;left:0;bottom:-5px;height:1.5px;width:0;background:var(--coral);transition:width .3s var(--ease)}
+  .nav-links a:hover,.nav-links a.active{color:var(--ink)}
+  .nav-links a.active:not(.nav-cta)::after,.nav-links a:hover:not(.nav-cta)::after{width:100%}
+  .nav-cta{padding:9px 18px;border:1px solid var(--ink);border-radius:999px;font-weight:600;font-size:.8rem;transition:.3s var(--ease)}
+  .nav-cta:hover{background:var(--ink);color:var(--cream)}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;font-size:1.4rem;color:var(--ink)}
+
+  /* hero */
+  .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 0 90px;overflow:hidden}
+  .hero-glow{position:absolute;top:38%;left:50%;transform:translate(-50%,-50%);width:min(900px,90vw);height:min(900px,90vw);
+    border-radius:50%;z-index:0;background:radial-gradient(circle,var(--blue-200) 0%,rgba(198,219,241,.35) 38%,transparent 70%);
+    filter:blur(8px);opacity:0;animation:bloom 2.4s var(--ease) .3s forwards}
+  @keyframes bloom{to{opacity:.85}}
+  .bar{position:absolute;left:0;right:0;height:0;background:var(--ink);z-index:5;opacity:.92;animation:barIn 1s var(--ease) forwards}
+  .bar.top{top:0}.bar.bot{bottom:0;animation-delay:.05s}
+  @keyframes barIn{to{height:clamp(14px,3vh,30px)}}
+  .hero-inner{position:relative;z-index:6}
+  .hero-eyebrow{display:flex;align-items:center;gap:14px;color:var(--blue-700);opacity:0;animation:rise .9s var(--ease) .9s forwards}
+  .hero-eyebrow .rule{height:1px;width:46px;background:var(--blue-300)}
+  .hero h1{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.03em;font-size:clamp(3.6rem,13vw,10.5rem);
+    line-height:.9;margin:.18em 0 .12em;color:var(--ink)}
+  .hero h1 .ln{color:var(--blue-700);font-style:italic;font-weight:400}
+  .hero h1 span.word{display:inline-block;opacity:0;transform:translateY(28px);animation:rise 1s var(--ease) forwards}
+  .hero-sub{max-width:680px;font-size:clamp(1.05rem,1.6vw,1.32rem);color:var(--ink-soft);font-weight:400;opacity:0;animation:rise .9s var(--ease) 1.3s forwards}
+  .hero-sub strong{color:var(--ink);font-weight:600}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:36px;opacity:0;animation:rise .9s var(--ease) 1.5s forwards}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:.92rem;transition:.35s var(--ease);cursor:pointer;border:1px solid transparent}
+  .btn-primary{background:var(--ink);color:var(--cream)}
+  .btn-primary:hover{background:var(--blue-900);transform:translateY(-2px);box-shadow:var(--shadow)}
+  .btn-ghost{border-color:var(--line);color:var(--ink);background:transparent}
+  .btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+  .btn .arrow{transition:transform .35s var(--ease)}
+  .btn:hover .arrow{transform:translate(3px,-3px)}
+  .hero-meta{position:absolute;bottom:46px;left:0;right:0;z-index:6;display:flex;justify-content:space-between;align-items:flex-end;opacity:0;animation:rise .9s var(--ease) 1.7s forwards}
+  .timecode{color:var(--ink-soft)}
+  .scroll-cue{display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--ink-soft)}
+  .scroll-cue .line{width:1px;height:40px;background:var(--line);position:relative;overflow:hidden}
+  .scroll-cue .line::after{content:"";position:absolute;top:0;left:0;width:100%;height:40%;background:var(--coral);animation:drop 1.8s var(--ease) infinite}
+  @keyframes drop{0%{transform:translateY(-100%)}60%,100%{transform:translateY(250%)}}
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+
+  section{position:relative;padding:120px 0}
+  .seg-label{display:flex;align-items:center;gap:16px;margin-bottom:42px}
+  .seg-label .num{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--coral-deep);letter-spacing:.1em}
+  .seg-label .ttl{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+  .seg-label .rule{flex:1;height:1px;background:var(--line)}
+  .reveal{opacity:0;transform:translateY(36px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* about */
+  #about{background:var(--cream-2)}
+  .about-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:64px;align-items:center}
+  .about-copy h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.9rem,3.4vw,2.9rem);line-height:1.12;letter-spacing:-.02em;margin-bottom:26px;color:var(--ink)}
+  .about-copy h2 em{font-style:italic;color:var(--blue-700)}
+  .about-copy p{font-size:1.07rem;color:var(--ink-soft);margin-bottom:18px;max-width:62ch}
+  .about-copy p strong{color:var(--ink);font-weight:600}
+  .about-copy .kicker{font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;color:var(--blue-700);margin-top:6px}
+
+  .stat-card{background:var(--ink);border-radius:16px;padding:8px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+  .stat-card .frame-label{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,247,241,.5);padding:14px 16px 10px}
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(250,247,241,.1);border-radius:10px;overflow:hidden}
+  .stat{background:var(--ink);padding:26px 20px;display:flex;flex-direction:column;gap:6px;transition:background .4s var(--ease)}
+  .stat:hover{background:#222d3d}
+  .stat .big{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,3.6vw,2.7rem);line-height:1;color:var(--cream)}
+  .stat .big em{font-style:italic;color:var(--blue-300)}
+  .stat .lbl{font-size:.82rem;color:rgba(250,247,241,.62);line-height:1.35}
+  .stat .sub{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--coral);margin-top:2px}
+
+  /* rail */
+  .rail-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:26px}
+  .rail-head h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3.1rem);line-height:1.05;letter-spacing:-.02em}
+  .rail-head h2 em{font-style:italic;color:var(--blue-700)}
+  .rail-ctrl{display:flex;gap:10px}
+  .rail-ctrl button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);cursor:pointer;font-size:1.1rem;color:var(--ink);transition:.3s var(--ease);display:flex;align-items:center;justify-content:center}
+  .rail-ctrl button:hover{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+  .rail{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 0 28px;scrollbar-width:none;-ms-overflow-style:none}
+  .rail::-webkit-scrollbar{display:none}
+  .card{flex:0 0 clamp(300px,40vw,460px);scroll-snap-align:start;background:var(--card);border-radius:14px;overflow:hidden;border:1px solid var(--line-soft);box-shadow:var(--shadow);transition:transform .45s var(--ease),box-shadow .45s var(--ease);display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+  .card-poster{min-height:150px;position:relative;display:flex;align-items:flex-end;padding:20px;background:linear-gradient(150deg,var(--blue-700),var(--blue-500))}
+  .card.r2 .card-poster{background:linear-gradient(150deg,var(--blue-900),var(--blue-500))}
+  .card-poster .chno{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.18em;color:rgba(255,255,255,.85);position:absolute;top:16px;left:20px}
+  .card-poster .ptitle{font-family:'Fraunces',serif;color:#fff;font-size:1.3rem;line-height:1.18;font-weight:500;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+  .card-body{padding:24px;display:flex;flex-direction:column;gap:16px;flex:1}
+  .card-body .meta{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--coral-deep)}
+  .card-body p{color:var(--ink-soft);font-size:.97rem}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+  .tag{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--blue-100);color:var(--blue-900)}
+  .rail-hint{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase;text-align:center;margin-top:4px}
+
+  /* impact spotlight */
+  #impact{background:var(--cream-2)}
+  .impact-feature{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:18px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--card)}
+  .impact-left{padding:46px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+  .impact-left .meta{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--coral-deep)}
+  .impact-left h3{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.8rem,3vw,2.4rem);line-height:1.1;letter-spacing:-.02em}
+  .impact-left p{color:var(--ink-soft);font-size:1.02rem}
+  .impact-left .tags{margin-top:6px}
+  .impact-right{background:linear-gradient(155deg,var(--blue-900),var(--blue-700));color:#fff;padding:46px;display:flex;flex-direction:column;justify-content:center}
+  .vs-row{display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .vs-num{text-align:center;flex:1}
+  .vs-num .n{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1}
+  .vs-num.save .n{color:#fff}
+  .vs-num.cost .n{color:var(--blue-300)}
+  .vs-num .l{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:10px;line-height:1.5}
+  .vs-sep{font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;color:var(--coral);opacity:.9}
+  .impact-context{margin-top:30px;padding-top:22px;border-top:1px solid rgba(255,255,255,.16);font-size:.9rem;color:rgba(255,255,255,.78);line-height:1.55}
+  .impact-context .who{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-300);display:block;margin-top:8px}
+
+  /* interests */
+  .int-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:28px}
+  .int-col{background:var(--card);border:1px solid var(--line-soft);border-radius:14px;padding:30px;box-shadow:var(--shadow)}
+  .int-col .clock{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.16em;color:var(--coral-deep);margin-bottom:6px}
+  .int-col h3{font-family:'Fraunces',serif;font-weight:500;font-size:1.35rem;margin-bottom:18px;color:var(--ink)}
+  .int-col .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{font-size:.88rem;padding:7px 14px;border-radius:999px;background:var(--blue-100);color:var(--blue-900);font-weight:500}
+  .int-col.night .chip{background:var(--coral-soft);color:#8a3a1f}
+  .directions{background:var(--ink);border-radius:14px;padding:30px 32px;color:var(--cream)}
+  .directions .clock{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.16em;color:var(--blue-300);margin-bottom:14px;text-transform:uppercase}
+  .directions h3{font-family:'Fraunces',serif;font-weight:500;font-size:1.25rem;margin-bottom:18px}
+  .directions .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .directions .chip{background:rgba(156,192,231,.14);color:var(--blue-200)}
+
+  /* resume */
+  #resume{background:var(--cream-2)}
+  .resume-top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px}
+  .resume-top h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4vw,3.1rem);letter-spacing:-.02em;line-height:1.05}
+  .resume-top h2 em{font-style:italic;color:var(--blue-700)}
+  .resume-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px}
+  .res-block{margin-bottom:36px}
+  .res-block h3{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--coral-deep);margin-bottom:22px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+  .res-item{display:flex;flex-direction:column;gap:3px;margin-bottom:24px}
+  .res-item .row{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+  .res-item .h{font-weight:600;font-size:1.05rem;color:var(--ink)}
+  .res-item .when{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--ink-soft);white-space:nowrap}
+  .res-item .sub{color:var(--blue-700);font-weight:500;font-size:.95rem}
+  .res-item .desc{color:var(--ink-soft);font-size:.95rem;margin-top:5px}
+  .res-item .desc strong{color:var(--ink);font-weight:600}
+  .coursework{font-size:.92rem;color:var(--ink-soft);line-height:1.7}
+  .coursework b{color:var(--ink);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:6px}
+  .skills-mini{margin-top:8px}
+  .skill-row{margin-bottom:16px}
+  .skill-row .k{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:9px}
+  .skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+  .skill-tags .tag{background:var(--card);border:1px solid var(--line-soft)}
+
+  /* contact */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  .contact-copy h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2.4rem,5vw,4rem);line-height:1.02;letter-spacing:-.025em;margin-bottom:22px}
+  .contact-copy h2 em{font-style:italic;color:var(--blue-700)}
+  .contact-copy p{color:var(--ink-soft);font-size:1.1rem;max-width:42ch;margin-bottom:34px}
+  .quick-links{display:flex;flex-direction:column;gap:2px}
+  .qlink{display:flex;align-items:center;justify-content:space-between;padding:18px 4px;border-top:1px solid var(--line);transition:.3s var(--ease)}
+  .qlink:last-child{border-bottom:1px solid var(--line)}
+  .qlink:hover{padding-left:14px}
+  .qlink .label{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+  .qlink .val{font-weight:600;font-size:1.02rem}
+  .qlink:hover .val{color:var(--coral-deep)}
+  form{background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:34px;box-shadow:var(--shadow)}
+  .field{margin-bottom:20px;display:flex;flex-direction:column;gap:8px}
+  .field label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+  .field input,.field textarea{font-family:'Hanken Grotesk',sans-serif;font-size:1rem;color:var(--ink);background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:14px 16px;transition:.25s var(--ease);resize:vertical}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--blue-500);box-shadow:0 0 0 4px var(--blue-100)}
+  form .btn-primary{width:100%;justify-content:center;margin-top:6px}
+  .form-note{font-size:.82rem;color:var(--ink-soft);text-align:center;margin-top:16px}
+  .form-ok{display:none;text-align:center;padding:30px 10px}
+  .form-ok.show{display:block;animation:rise .6s var(--ease) forwards}
+  .form-ok .check{width:54px;height:54px;border-radius:50%;background:var(--blue-100);color:var(--blue-700);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin:0 auto 16px}
+  .form-ok h3{font-family:'Fraunces',serif;font-weight:500;font-size:1.5rem;margin-bottom:8px}
+  .form-ok p{color:var(--ink-soft)}
+
+  footer{background:var(--ink);color:var(--cream);padding:90px 0 40px;position:relative}
+  .foot-tag{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2.2rem,6vw,4.4rem);line-height:1.02;letter-spacing:-.02em;max-width:16ch;margin-bottom:64px}
+  .foot-tag em{font-style:italic;color:var(--blue-300)}
+  .foot-grid{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;border-top:1px solid rgba(250,247,241,.14);padding-top:34px}
+  .foot-name{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;color:rgba(250,247,241,.55);line-height:2}
+  .foot-links{display:flex;gap:22px}
+  .foot-links a{font-size:.86rem;color:rgba(250,247,241,.72);transition:color .25s var(--ease)}
+  .foot-links a:hover{color:var(--cream)}
+  .fin{font-family:'JetBrains Mono',monospace;letter-spacing:.4em;font-size:.7rem;color:rgba(250,247,241,.4);text-align:center;margin-top:56px;text-transform:uppercase}
+
+  @media(max-width:880px){
+    .wrap{padding:0 22px}
+    nav{padding:14px 22px}
+    .nav-links{position:fixed;inset:0 0 0 auto;width:min(80vw,330px);background:var(--cream);flex-direction:column;justify-content:center;gap:22px;padding:40px;transform:translateX(100%);transition:transform .45s var(--ease);box-shadow:var(--shadow-lg);border-left:1px solid var(--line)}
+    .nav-links.open{transform:translateX(0)}
+    .nav-toggle{display:block;z-index:901}
+    .about-grid,.resume-grid,.contact-grid,.impact-feature,.int-grid{grid-template-columns:1fr;gap:34px}
+    section{padding:84px 0}
+    .resume-top,.rail-head{flex-direction:column;align-items:flex-start}
+    .hero-meta{flex-direction:column;align-items:flex-start;gap:18px;position:static;margin-top:50px}
+    .impact-left,.impact-right{padding:34px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal,.hero h1 span.word,.hero-eyebrow,.hero-sub,.hero-actions,.hero-meta,.hero-glow{opacity:1!important;transform:none!important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="letterbox top" aria-hidden="true"></div>
+<div class="letterbox bot" aria-hidden="true"></div>
+<div class="vignette" id="vignette" aria-hidden="true"></div>
+
+<nav id="nav">
+  <a href="#top" class="brand"><span class="dot"></span>Preston Cosby</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu">☰</button>
+  <div class="nav-links" id="navLinks">
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#impact">Impact</a>
+    <a href="#interests">Interests</a>
+    <a href="#resume">Résumé</a>
+    <a href="#contact" class="nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-eyebrow mono"><span class="rule"></span>Ch. 01 — Now Showing · Durham, NC</div>
+    <h1>
+      <span class="word" style="animation-delay:.95s">Preston</span><br>
+      <span class="word ln" style="animation-delay:1.1s">Cosby</span>
+    </h1>
+    <p class="hero-sub"><strong>Biochemistry Researcher</strong> and <strong>Student Body President</strong> at NCSSM, building toward cost-effective, equitable healthcare — at the intersection of bioengineering and public policy.</p>
+    <div class="hero-actions">
+      <a href="#research" class="btn btn-primary">See the work <span class="arrow">↗</span></a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+  </div>
+  <div class="wrap hero-meta">
+    <span class="timecode mono">00:00:01:00 — Portfolio</span>
+    <span class="scroll-cue mono">Scroll<span class="line"></span></span>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="seg-label reveal"><span class="num">02</span><span class="ttl">About</span><span class="rule"></span></div>
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <h2>I see problems and I build solutions — because <em>real problems deserve real solutions.</em></h2>
+        <p>Across chemistry, the humanities, and engineering, the pattern is the same. I saw that late-stage Alzheimer's patients didn't have many options, so I set out to give them one. I saw that prosthetics are out of reach for most of the world, so I worked to close that gap.</p>
+        <p>On a personal level, I value <strong>authenticity, expression, connection, and optimism</strong>. On a professional level, I apply those same values to the world around me. The communities that gave me room to grow are the reason I believe every community — big or small — deserves an equal chance to thrive. So I build solutions that don't just work in theory; they work in the <strong>real world</strong>, making life a little more fair, one step at a time.</p>
+        <p>We've all heard "life isn't fair." It gets thrown around like it's settled. I can't accept that.</p>
+        <p class="kicker">If you want to build toward a fair world — let's work together.</p>
+      </div>
+      <div class="reveal">
+        <div class="stat-card">
+          <div class="frame-label">— The Receipts / 02:14 —</div>
+          <div class="stat-grid">
+            <div class="stat"><span class="big">680<em>+</em></span><span class="lbl">students led as Student Body President</span></div>
+            <div class="stat"><span class="big">250K<em>+</em></span><span class="lbl">students represented in UNC System governance</span></div>
+            <div class="stat"><span class="big">$30K</span><span class="lbl">saved per patient through accessible prosthetics</span></div>
+            <div class="stat"><span class="big">2</span><span class="lbl">independent research programs</span><span class="sub">Cornell &amp; Stanford PhD–mentored</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="wrap">
+    <div class="seg-label reveal"><span class="num">03</span><span class="ttl">Research</span><span class="rule"></span></div>
+    <div class="rail-head reveal">
+      <h2>The <em>science.</em></h2>
+      <div class="rail-ctrl">
+        <button id="railPrev" aria-label="Scroll left">←</button>
+        <button id="railNext" aria-label="Scroll right">→</button>
+      </div>
+    </div>
+    <div class="rail reveal" id="rail">
+      <article class="card">
+        <div class="card-poster"><span class="chno">CH. 01 — Featured</span><h3 class="ptitle">A Novel Dual-Mechanism Small-Molecule Therapeutic for Alzheimer's Disease</h3></div>
+        <div class="card-body">
+          <span class="meta">Research in Chemistry · Mentored by a Cornell PhD</span>
+          <p>Computationally designing a dual-inhibitor for Alzheimer's disease using molecular-modeling software (including Schrödinger Maestro, SwissADME, and pharmacokinetic analysis tools) — engineered to target both symptom alleviation and disease modification across the full disease trajectory, addressing the shortage of late-stage treatments. Synthesizing, confirming, and validating the molecule via NMR, IR, and a <em>C. elegans</em> Alzheimer's model.</p>
+          <div class="tags"><span class="tag">Drug Design</span><span class="tag">Computational Chemistry</span><span class="tag">Compound Synthesis</span><span class="tag">Biochemistry</span></div>
+        </div>
+      </article>
+      <article class="card r2">
+        <div class="card-poster"><span class="chno">CH. 02</span><h3 class="ptitle">Compounding Echoes: Systemic Racism &amp; Healthcare Outcomes for Black Patients in America</h3></div>
+        <div class="card-body">
+          <span class="meta">Research in the Humanities · Mentored by a Stanford PhD</span>
+          <p>A research article examining the history and present of medical discrimination in employment and patient outcomes for African Americans — tracing systemic geographic, economic, and educational effects and their compounding consequences, then analyzing root causes to evaluate and propose solutions.</p>
+          <div class="tags"><span class="tag">Health Equity</span><span class="tag">Medical Discrimination</span><span class="tag">Policy</span><span class="tag">Humanities</span></div>
+        </div>
+      </article>
+    </div>
+    <p class="rail-hint reveal">← Drag or scroll to explore →</p>
+  </div>
+</section>
+
+<!-- REAL-WORLD IMPACT -->
+<section id="impact">
+  <div class="wrap">
+    <div class="seg-label reveal"><span class="num">04</span><span class="ttl">Real-World Impact</span><span class="rule"></span></div>
+    <div class="impact-feature reveal">
+      <div class="impact-left">
+        <span class="meta">e-NABLE · Founder, "Creating Change"</span>
+        <h3>Prosthetics that reach the people who need them.</h3>
+        <p>As a prosthetic technician with the e-NABLE non-profit, I 3D-print prosthetic limbs for individuals with limb differences around the globe — provided free of charge, performing at a level comparable to consumer-grade devices. What started as a library initiative I founded became a working answer to a global accessibility gap.</p>
+        <div class="tags"><span class="tag">Prosthetic Design</span><span class="tag">Health Equity</span><span class="tag">International Impact</span></div>
+      </div>
+      <div class="impact-right">
+        <div class="vs-row">
+          <div class="vs-num save"><div class="n">$30,000</div><div class="l">saved per patient vs. an average prosthetic</div></div>
+          <div class="vs-sep">vs</div>
+          <div class="vs-num cost"><div class="n">$100</div><div class="l">total cost per limb, all-in</div></div>
+        </div>
+        <div class="impact-context">
+          Comparable performance to consumer-grade prosthetics — at a fraction of the cost, delivered domestically and internationally at no charge.
+          <span class="who">1 in 10 people worldwide lack access to prosthetic limbs — WHO</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERESTS -->
+<section id="interests">
+  <div class="wrap">
+    <div class="seg-label reveal"><span class="num">05</span><span class="ttl">Interests</span><span class="rule"></span></div>
+    <div class="rail-head reveal" style="margin-bottom:28px">
+      <h2>What I'm <em>into.</em></h2>
+    </div>
+    <div class="int-grid reveal">
+      <div class="int-col">
+        <div class="clock">9 — 5</div>
+        <h3>The work</h3>
+        <div class="chips">
+          <span class="chip">Biochemistry</span><span class="chip">Health Equity</span><span class="chip">Public Policy</span>
+          <span class="chip">Legislation</span><span class="chip">Biomedical Engineering</span><span class="chip">Pharmaceuticals</span>
+          <span class="chip">Business</span><span class="chip">Politics</span><span class="chip">Philosophy</span>
+        </div>
+      </div>
+      <div class="int-col night">
+        <div class="clock">5 — 9</div>
+        <h3>The person</h3>
+        <div class="chips">
+          <span class="chip">Social Advocacy</span><span class="chip">Writing</span><span class="chip">Photography / Cinematography</span>
+          <span class="chip">Music — orchestral &amp; solo, regional recognition</span>
+          <span class="chip">Languages — Spanish &amp; Korean (learning)</span>
+          <span class="chip">Website Development</span><span class="chip">Speech &amp; Debate</span>
+        </div>
+      </div>
+    </div>
+    <div class="directions reveal">
+      <div class="clock">Current / Future Research Directions</div>
+      <div class="chips">
+        <span class="chip">Neurodegenerative Diseases</span><span class="chip">Drug Design</span>
+        <span class="chip">Covalent Inhibitor Design</span><span class="chip">Multi-Target Directed Ligand Development</span>
+        <span class="chip">Underserved Populations</span><span class="chip">Biochemistry</span>
+        <span class="chip">Medical Discrimination</span><span class="chip">Legal Equity</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="wrap">
+    <div class="seg-label reveal"><span class="num">06</span><span class="ttl">Résumé</span><span class="rule"></span></div>
+    <div class="resume-top reveal">
+      <h2>The <em>need-to-knows.</em></h2>
+      <a href="Preston_I__Cosby_Resume.pdf" class="btn btn-primary" download>Download full résumé <span class="arrow">↓</span></a>
+    </div>
+    <div class="resume-grid">
+      <div class="reveal">
+        <div class="res-block">
+          <h3>Education</h3>
+          <div class="res-item">
+            <div class="row"><span class="h">NC School of Science &amp; Mathematics</span><span class="when">Aug 2025 – May 2027</span></div>
+            <span class="sub">Durham, NC · GPA 4.85W</span>
+            <span class="desc">Admitted to the NCSSM Residential Program for junior and senior year at the #1 public high school in America.</span>
+          </div>
+          <div class="coursework">
+            <b>Relevant &amp; Upcoming Coursework</b>
+            Multivariable Calculus · Biophysics · Linear Algebra · Organic Chemistry · Differential Equations · Biochemistry · Biomedical Engineering · AP Chemistry · AP Statistics · Immunology
+          </div>
+        </div>
+        <div class="res-block">
+          <h3>Skills</h3>
+          <div class="skills-mini">
+            <div class="skill-row">
+              <div class="k">Technical</div>
+              <div class="skill-tags">
+                <span class="tag">Small Molecule Drug Design</span><span class="tag">Schrödinger Maestro</span><span class="tag">Wet Lab Synthesis</span>
+                <span class="tag">Policy / Legislation Development</span><span class="tag">Demographic Analysis</span><span class="tag">Website Development</span>
+                <span class="tag">Database Management</span><span class="tag">Humanitarian Photography</span><span class="tag">Legislative Advocacy</span><span class="tag">Public Speaking</span>
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="k">Language</div>
+              <div class="skill-tags"><span class="tag">English (Native)</span><span class="tag">French (Conversational)</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="res-block">
+          <h3>Experience &amp; Leadership</h3>
+          <div class="res-item">
+            <div class="row"><span class="h">Student Body President</span><span class="when">2025 – Current</span></div>
+            <span class="sub">NCSSM Student Government</span>
+            <span class="desc">Represents the NCSSM student body within <strong>UNC System governance, affecting 250K+ students statewide</strong> through legislation. Elected chief executive of 680+ students, directing a 14-member executive board. Serves on the NCSSM Board of Trustees — the <strong>only student on the Durham campus</strong> selected to do so.</span>
+          </div>
+          <div class="res-item">
+            <div class="row"><span class="h">Pharmacy Assistant (Seasonal)</span><span class="when">Jun 2025 – Current</span></div>
+            <span class="sub">Guardian Pharmacy · Charlotte, NC</span>
+            <span class="desc">Facilitates daily pharmacy operations and prepares medication deliveries for nursing homes. Firsthand exposure to pharmaceutical access gaps informs research on cost-effective treatment development.</span>
+          </div>
+          <div class="res-item">
+            <div class="row"><span class="h">Teen Volunteer &amp; Founder, "Creating Change"</span><span class="when">Aug 2022 – May 2025</span></div>
+            <span class="sub">Charlotte Mecklenburg Library</span>
+            <span class="desc">Advised patrons, managed circulation, and ran library programs. Founded and led the Creating Change initiative — 3D-printing prosthetic limbs to demonstrate cost-effective solutions to medical accessibility gaps.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="seg-label reveal"><span class="num">07</span><span class="ttl">Contact</span><span class="rule"></span></div>
+    <div class="contact-grid">
+      <div class="contact-copy reveal">
+        <h2>Let's build something <em>worth doing.</em></h2>
+        <p>Research, internships, collaborations, or just a conversation — if it moves the work forward, I want to hear about it.</p>
+        <div class="quick-links">
+          <a class="qlink" href="mailto:Preston.icosby@gmail.com"><span class="label">Email</span><span class="val">Preston.icosby@gmail.com</span></a>
+          <a class="qlink" href="https://www.linkedin.com/in/preston-cosby/" target="_blank" rel="noopener"><span class="label">LinkedIn</span><span class="val">/in/preston-cosby</span></a>
+          <a class="qlink" href="mailto:Cosby27p@ncssm.edu"><span class="label">School</span><span class="val">Cosby27p@ncssm.edu</span></a>
+        </div>
+      </div>
+      <div class="reveal">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm">
+          <input type="hidden" name="form-name" value="contact" />
+          <p style="display:none"><label>Don't fill this out: <input name="bot-field" /></label></p>
+          <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" placeholder="Your name" required /></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@example.com" required /></div>
+          <div class="field"><label for="message">Message</label><textarea id="message" name="message" rows="4" placeholder="What's on your mind?" required></textarea></div>
+          <button type="submit" class="btn btn-primary">Send it <span class="arrow">↗</span></button>
+          <p class="form-note">Usually replies within a day or two.</p>
+        </form>
+        <div class="form-ok" id="formOk">
+          <div class="check">✓</div><h3>Message sent.</h3><p>Thanks for reaching out — I'll be in touch soon.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-tag reveal">Real-world solutions for <em>every community that deserves better.</em></div>
+    <div class="foot-grid">
+      <div class="foot-name">PRESTON COSBY<br>BIOCHEMISTRY × PUBLIC POLICY<br>DURHAM, NC · © <span id="yr"></span></div>
+      <div class="foot-links">
+        <a href="mailto:Preston.icosby@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/preston-cosby/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </div>
+    <div class="fin">— Fin —</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const nav=document.getElementById('nav'),progress=document.getElementById('progress');
+  const vignette=document.getElementById('vignette');let framed=false;
+  vignette.addEventListener('animationend',()=>vignette.classList.remove('flash'));
+  function onScroll(){const h=document.documentElement;const y=h.scrollTop;const s=y/(h.scrollHeight-h.clientHeight);
+    progress.style.width=(s*100)+'%';nav.classList.toggle('scrolled',y>40);
+    if(y>50&&!framed){framed=true;document.body.classList.add('framed');
+      vignette.classList.remove('flash');void vignette.offsetWidth;vignette.classList.add('flash');}
+    else if(y<=50&&framed){framed=false;document.body.classList.remove('framed');}}
+  document.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  const toggle=document.getElementById('navToggle'),links=document.getElementById('navLinks');
+  toggle.addEventListener('click',()=>{const o=links.classList.toggle('open');toggle.textContent=o?'✕':'☰';});
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');toggle.textContent='☰';}));
+
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const navmap={};document.querySelectorAll('.nav-links a').forEach(a=>{const id=a.getAttribute('href').replace('#','');if(id)navmap[id]=a;});
+  const spy=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){Object.values(navmap).forEach(a=>a.classList.remove('active'));if(navmap[e.target.id])navmap[e.target.id].classList.add('active');}});},{rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('section[id],header[id]').forEach(s=>spy.observe(s));
+
+  const rail=document.getElementById('rail');const step=()=>Math.min(rail.clientWidth*0.85,480);
+  document.getElementById('railNext').addEventListener('click',()=>rail.scrollBy({left:step(),behavior:'smooth'}));
+  document.getElementById('railPrev').addEventListener('click',()=>rail.scrollBy({left:-step(),behavior:'smooth'}));
+
+  const form=document.getElementById('contactForm'),ok=document.getElementById('formOk');
+  form.addEventListener('submit',async(ev)=>{ev.preventDefault();if(!form.checkValidity()){form.reportValidity();return;}
+    try{await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()});}catch(e){/* preview has no backend; on Netlify this records the submission */}
+    form.style.display='none';ok.classList.add('show');});
+</script>
+</body>
+</html>
